@@ -1,6 +1,8 @@
 import unittest
 from textnode import TextNode, TextType
 
+# TODO test nodes should be refactored to use keyword arguments to make the test case more clear- one doesn't have to then look at another file to see what the textnode parameters are or their order.
+
 
 class TestTextNode(unittest.TestCase):
     def test_eq(self):
