@@ -3,6 +3,8 @@ from htmlnode import HTMLNode
 
 class ParentNode(HTMLNode):
     def __init__(self, tag, children, props=None):
+        if isinstance(children, HTMLNode):
+            children = [children]
         super().__init__(tag, children=children, props=props)
 
     def to_html(self):
@@ -14,8 +16,8 @@ class ParentNode(HTMLNode):
         if self.props is not None:
             for key, value in self.props.items():
                 props_string += f' {key}="{value}"'
-        else:
-            child_string = ""
-            for child in self.children:
-                child_string += child.to_html()
-            return f"<{self.tag}{props_string}>{child_string}</{self.tag}>"
+
+        child_string = ""
+        for child in self.children:
+            child_string += child.to_html()
+        return f"<{self.tag}{props_string}>{child_string}</{self.tag}>"
