@@ -7,6 +7,7 @@ def split_nodes_image(old_nodes):
     for node in old_nodes:
         matches = extract_markdown_images(node.text)  # Extract text from TextNode
         print(matches)
+        node.split(matches)
 
 
 # def split_nodes_link(old_nodes):
