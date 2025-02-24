@@ -17,3 +17,5 @@ old_nodes = TextNode(
     TextType.TEXT,
 )
 split_nodes_image([old_nodes])
+
+# TODO fix split
